@@ -1,5 +1,5 @@
 # DQN_Trader
-Developed an algorithmic trading agent implementing deep reinforcement learning (DQN) to buy and sell stock shares. The following trading agent inputs raw closing price data in set intervals to forecast stock prices then optimises the expected rewards utilising the Bellman's Equation under a fixed policy.
+Developed an algorithmic trading agent implementing deep reinforcement learning (DQN) to buy and sell stock shares. The following trading agent inputs raw closing price data in set intervals to forecast stock prices then optimises the policy utilising the Bellman's Equation under a fixed reward system.
 ## Prerequisites
 
 ```
