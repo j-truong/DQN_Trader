@@ -6,6 +6,7 @@ import random
 from dqn_agent import dqn_agent
 from env import env
 
+# Parameters
 window = 10
 episodes = 50
 batch_size = 32
@@ -17,17 +18,22 @@ min_epsilon = 0.001
 file_name = 'GOOGL_10'
 
 df = pd.read_csv('data/'+file_name+'.csv')
-data = df['Close']
+df = df[:50]
+
+closing_data = df['Close']
 dates = pd.to_datetime(df['Date'],format="%Y/%m/%d")
 
 agent = dqn_agent(window)
-env = env(data,window)
+data = agent.normalise(closing_data) # Normalise closing data
+env = env(data,closing_data,window)
+
 
 for episode in range(episodes):
 
 	current_state = np.array([data[0:window]])
 	done = False
 
+	# Reset environment history data
 	env.reset()
 
 	for t in range(len(data) - window):
@@ -38,7 +44,6 @@ for episode in range(episodes):
 		new_state = np.array([data[t: t + window]])
 
 		agent.memory.append([current_state, action, reward, new_state, done])
-
 		agent.train(batch_size)
 
 		if epsilon > min_epsilon:
@@ -47,6 +52,7 @@ for episode in range(episodes):
 
 		current_state = new_state
 
+		# Print Stats for the end of the episode
 		if done:
 			print ('---------------------------------------')
 			print ('Episode ' + str(episode) + ' Total Rewards: ' + str(env.episode_total[-1]))
