@@ -17,7 +17,7 @@ With my first model utilising a simple Neural Network to classify the actions of
 
 ![image](https://github.com/j-truong/DQN_Trader/blob/master/images/GOOGL_10/Model1/episode_0.png)
 
-![image](https://github.com/j-truong/DQN_Trader/blob/master/images/GOOGL_10/Model1/episode_26ng)
+![image](https://github.com/j-truong/DQN_Trader/blob/master/images/GOOGL_10/Model1/episode_26.png)
 
 ![image](https://github.com/j-truong/DQN_Trader/blob/master/images/GOOGL_10/Model1/Total_Rewards.png)
 
